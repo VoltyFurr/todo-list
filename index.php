@@ -22,9 +22,9 @@ require 'db_conn.php';
                 <input type="text" name="title" style="border-color: #ff6666" placeholder="This field is required">
                 <button type="submit">Add &nbsp; <span>&#43;</span></button>
             <?php } else { ?>
-        <input type="text" name="title" placeholder="What do you need to do?" />
-        <button type="submit">Add &nbsp; <span>&#43;</span></button>
-        <?php } ?>
+                <input type="text" name="title" placeholder="What do you need to do?"/>
+                <button type="submit">Add &nbsp; <span>&#43;</span></button>
+            <?php } ?>
         </form>
     </div>
     <?php
@@ -43,11 +43,13 @@ require 'db_conn.php';
             <div class="todo-item">
                 <span id="<?php echo $todo['id']; ?>" class="remove-to-do">x</span>
                 <?php if ($todo['checked']) { ?>
-                    <input type="checkbox" class="check-box" checked/>
+                    <input type="checkbox" class="check-box" data-todo-id="<?php echo $todo['id'] ?>" checked/>
                     <h2 class="checked"><?php echo $todo['title'] ?></h2>
                 <?php } else { ?>
-                    <input type="checkbox" class="check-box"/>
-                    <h2><?php echo $todo['title'] ?></h2>
+                    <label>
+                        <input type="checkbox" data-todo-id="<?php echo $todo['id'] ?>" class="check-box"/>
+                        <h2 class=""><?php echo $todo['title'] ?></h2>
+                    </label>
                 <?php } ?>
                 <br>
                 <small>created: <?php echo $todo['date_time'] ?></small>
