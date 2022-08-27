@@ -1,3 +1,4 @@
+// Delete task
 $(document).ready(function () {
     $('.remove-to-do').click(function () {
         const id = $(this).attr('id');
@@ -13,7 +14,7 @@ $(document).ready(function () {
             }
         );
     });
-
+// Check task
     $(".check-box").click(function (e) {
         const id = $(this).attr('data-todo-id');
 

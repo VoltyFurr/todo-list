@@ -3,8 +3,8 @@ body {
 }
 
 * {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
 
@@ -20,7 +20,7 @@ body {
 .add-section {
     width: 100%;
     background: #fff;
-    margin: 0px auto;
+    margin: 0 auto;
     padding: 10px;
     border-radius: 5px;
 }
@@ -33,14 +33,14 @@ body {
     border: 2px solid #ccc;
     font-size: 16px;
     border-radius: 5px;
-    padding: 0px 5px;
+    padding: 0 5px;
 }
 
 .add-section button {
     display: block;
     width: 95%;
     height: 40px;
-    margin: 0px auto;
+    margin: 0 auto;
     border: none;
     outline: none;
     background: #0088FF;
@@ -68,7 +68,7 @@ body {
     display: block;
     background: #f2dede;
     width: 95%;
-    margin: 0px auto;
+    margin: 0 auto;
     color: rgb(139, 19, 19);
     padding: 10px;
     height: 35px;
@@ -101,9 +101,8 @@ body {
 .todo-item small {
     display: block;
     width: 100%;
-    padding: 5px 0;
+    padding: 5px 0 5px 30px;
     color: #888;
-    padding-left: 30px;
     font-size: 14px;
     font-family: sans-serif;
 }
