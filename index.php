@@ -55,5 +55,10 @@ require 'db_conn.php';
         <?php } ?>
     </div>
 </div>
+
+<!-- Connect JQuery -->
+<script src="js/jquery-3.6.1.min.js"></script>
+<!-- Connect JS -->
+<script src="js/script.js"></script>
 </body>
 </html>
