@@ -15,7 +15,7 @@ $(document).ready(function () {
         );
     });
 // Check task
-    $(".check-box").click(function (e) {
+    $(".check-box").click(function () {
         const id = $(this).attr('data-todo-id');
 
         $.post('app/check.php',
@@ -25,7 +25,6 @@ $(document).ready(function () {
             (data) => {
                 if (data !== 'error') {
                     const h2 = $(this).next();
-                    console.log(data);
                     if (Number(data) === 1) {
                         h2.removeClass('checked');
                     } else {

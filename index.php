@@ -1,6 +1,6 @@
 <?php
 // Connect to DB
-require 'db_conn.php';
+require 'db_connection.php';
 
 ?>
 
@@ -35,6 +35,7 @@ require 'db_conn.php';
             <?php } ?>
         </form>
     </div>
+    <!-- Selecting records from the database by id -->
     <?php
     $todos = $connect->query("SELECT * FROM todos ORDER BY id DESC");
     ?>

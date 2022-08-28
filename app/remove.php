@@ -1,15 +1,15 @@
 <?php
 
 if (isset($_POST['id'])) {
-    require '../db_conn.php';
+    require '../db_connection.php';
 
     $id = $_POST['id'];
 
     if (empty($id)) {
         echo 0;
     } else {
-        $stmt = $connect->prepare("DELETE FROM todos WHERE id=?");
-        $res = $stmt->execute([$id]);
+        $statement = $connect->prepare("DELETE FROM todos WHERE id=?");
+        $res = $statement->execute([$id]);
 
         if ($res) {
             echo 1;

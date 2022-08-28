@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_POST['id'])) {
-    require '../db_conn.php';
+    require '../db_connection.php';
 
     $id = $_POST['id'];
 
@@ -12,14 +12,13 @@ if (isset($_POST['id'])) {
         $todos = $connect->prepare("SELECT id, checked FROM todos WHERE id=?");
         $todos->execute([$id]);
 
-
         $todo = $todos->fetch();
-        $uId = $todo['id'];
+        $userId = $todo['id'];
         $checked = $todo['checked'];
 
-        $uChecked = $checked ? 0 : 1;
+        $userChecked = $checked ? 0 : 1;
 
-        $query = "UPDATE todos SET checked=$uChecked WHERE id=$uId";
+        $query = "UPDATE todos SET checked=$userChecked WHERE id=$userId";
 
         $res = $connect->query($query);
 
