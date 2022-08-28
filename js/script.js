@@ -25,7 +25,8 @@ $(document).ready(function () {
             (data) => {
                 if (data !== 'error') {
                     const h2 = $(this).next();
-                    if (data === '1') {
+                    console.log(data);
+                    if (Number(data) === 1) {
                         h2.removeClass('checked');
                     } else {
                         h2.addClass('checked');

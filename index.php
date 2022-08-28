@@ -23,41 +23,39 @@ require 'db_conn.php';
         <!-- Task entry form -->
         <form action="app/add.php" method="post" autocomplete="off">
             <?php if (isset($_GET['mess']) && $_GET['mess'] == 'error') { ?>
-                <input type="text" name="title" style="border-color: #ff6666" placeholder="This field is required">
+                <label>
+                    <input type="text" name="title" style="border-color: #ff6666" placeholder="This field is required">
+                </label>
                 <button type="submit">Add &nbsp; <span>&#43;</span></button>
             <?php } else { ?>
-                <input type="text" name="title" placeholder="What do you need to do?"/>
+                <label>
+                    <input type="text" name="title" placeholder="What do you need to do?"/>
+                </label>
                 <button type="submit">Add &nbsp; <span>&#43;</span></button>
             <?php } ?>
         </form>
     </div>
-    <!-- Displaying a picture if there are no tasks -->
     <?php
     $todos = $connect->query("SELECT * FROM todos ORDER BY id DESC");
     ?>
     <div class="show-todo-section">
-        <?php if ($todos->rowCount() <= 0) { ?>
-            <div class="todo-item">
-                <div class="empty">
-                    <img src="" width="100%">
-                </div>
-            </div>
-        <?php } ?>
-    <!-- Task display -->
+        <!-- Task display -->
         <?php while ($todo = $todos->fetch(PDO::FETCH_ASSOC)) { ?>
             <div class="todo-item">
-                <span id="<?php echo $todo['id']; ?>" class="remove-to-do">x</span>
+                <span id="<?= $todo['id']; ?>" class="remove-to-do">x</span>
                 <?php if ($todo['checked']) { ?>
-                    <input type="checkbox" class="check-box" data-todo-id="<?php echo $todo['id'] ?>" checked/>
-                    <h2 class="checked"><?php echo $todo['title'] ?></h2>
+                    <label>
+                        <input type="checkbox" class="check-box" data-todo-id="<?= $todo['id'] ?>" checked/>
+                        <h2 class="checked"><?= $todo['title'] ?></h2>
+                    </label>
                 <?php } else { ?>
                     <label>
-                        <input type="checkbox" data-todo-id="<?php echo $todo['id'] ?>" class="check-box"/>
-                        <h2 class=""><?php echo $todo['title'] ?></h2>
+                        <input type="checkbox" data-todo-id="<?= $todo['id'] ?>" class="check-box"/>
+                        <h2 class=""><?= $todo['title'] ?></h2>
                     </label>
                 <?php } ?>
                 <br>
-                <small>created: <?php echo $todo['date_time'] ?></small>
+                <small>created: <?= $todo['date_time'] ?></small>
             </div>
         <?php } ?>
     </div>
