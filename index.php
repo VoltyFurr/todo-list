@@ -19,8 +19,10 @@ require 'db_connection.php';
 </head>
 <body>
 <div class="main-section">
+    <h1 class="title-text">To-do list</h1>
     <div class="add-section">
         <!-- Task entry form -->
+
         <form action="app/add.php" method="post" autocomplete="off">
             <?php if (isset($_GET['mess']) && $_GET['mess'] == 'error') { ?>
                 <label>

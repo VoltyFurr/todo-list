@@ -8,12 +8,19 @@ body {
     box-sizing: border-box;
 }
 
+.title-text {
+    text-align: center;
+    padding-bottom: 50px;
+    font-size: 44px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #555555;
+}
 .main-section {
     background: transparent;
     max-width: 500px;
     width: 90%;
     height: 500px;
-    margin: 30px auto;
+    margin: 80px auto;
     border-radius: 10px;
 }
 
