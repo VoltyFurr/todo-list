@@ -6,9 +6,11 @@ $pass = "password";
 $db_name = "to_do_list";
 
 try {
-    $connect = new PDO("mysql:host=$hostName;dbname=$db_name", $userName, $pass);
+    $connect = new PDO("mysql:host=$hostName;", $userName, $pass);
     $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+    $db_name = "`" . str_replace("`", "``", $db_name) . "`";
+    $connect->query("CREATE DATABASE IF NOT EXISTS $db_name");
+    $connect->query("use $db_name");
     $connect->query("CREATE TABLE IF NOT EXISTS to_do_list.todos
 (
     `id`        INT AUTO_INCREMENT,
