@@ -1,5 +1,5 @@
 body {
-    background: lightblue;
+    background: rgb(31, 41, 55);
 }
 
 * {
@@ -8,13 +8,25 @@ body {
     box-sizing: border-box;
 }
 
+.check-box {
+    position: absolute;
+}
+
+.truncate {
+    max-width: 87%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 7%;
+}
+
 .title-text {
     text-align: center;
-    padding-bottom: 50px;
     font-size: 44px;
     font-family: Arial, Helvetica, sans-serif;
-    color: #555555;
+    color: grey;
 }
+
 .main-section {
     background: transparent;
     max-width: 500px;

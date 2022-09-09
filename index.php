@@ -19,14 +19,14 @@ require 'db_connection.php';
 </head>
 <body>
 <div class="main-section">
-    <h1 class="title-text">To-do list</h1>
+    <h1 class="title-text" style="padding-bottom: 50px;">To-do list</h1>
     <div class="add-section">
         <!-- Task entry form -->
 
         <form action="app/add.php" method="post" autocomplete="off">
             <?php if (isset($_GET['mess']) && $_GET['mess'] == 'error') { ?>
                 <label>
-                    <input type="text" name="title" style="border-color: #ff6666" placeholder="This field is required">
+                    <input type="text" name="title" placeholder="This field is required">
                 </label>
                 <button type="submit">Add &nbsp; <span>&#43;</span></button>
             <?php } else { ?>
@@ -42,6 +42,7 @@ require 'db_connection.php';
     $todos = $connect->query("SELECT * FROM todos ORDER BY id DESC");
     ?>
     <div class="show-todo-section">
+        <h1 class="title-text">My task</h1>
         <!-- Task display -->
         <?php while ($todo = $todos->fetch(PDO::FETCH_ASSOC)) { ?>
             <div class="todo-item">
@@ -49,12 +50,12 @@ require 'db_connection.php';
                 <?php if ($todo['checked']) { ?>
                     <label>
                         <input type="checkbox" class="check-box" data-todo-id="<?= $todo['id'] ?>" checked/>
-                        <h2 class="checked"><?= $todo['title'] ?></h2>
+                        <h2 class="checked truncate"><?= $todo['title'] ?></h2>
                     </label>
                 <?php } else { ?>
                     <label>
                         <input type="checkbox" data-todo-id="<?= $todo['id'] ?>" class="check-box"/>
-                        <h2 class=""><?= $todo['title'] ?></h2>
+                        <h2 class="truncate"><?= $todo['title'] ?></h2>
                     </label>
                 <?php } ?>
                 <br>
